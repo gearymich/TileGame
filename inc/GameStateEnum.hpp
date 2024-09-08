@@ -3,6 +3,7 @@
 
 // if tile d.n.e in game hashmap, color black
 enum class TileState {
+	NA,
 	FILLED,
 	EMPTY,
     PLAYER
@@ -13,5 +14,12 @@ enum class LevelState {
 	FAIL,
     PROGRESS
 };
+
+enum class TileShape {
+	SQUARE,
+	TRIANGLE,
+	HEXAGON
+};
+
 
 #endif // GAMESTATEENUM_HPP
