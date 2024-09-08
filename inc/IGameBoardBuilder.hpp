@@ -27,13 +27,11 @@ public:
 
 protected:
 
-    virtual void SetGameBoard() = 0;
+    virtual void SetGameBoard(std::shared_ptr<std::unordered_map<Coordinate, TileState>>) = 0;
+
+    virtual void SetGameTileShape(std::shared_ptr<TileShape>) = 0;
 
     virtual void ValidateGameBoard() = 0;
-
-    virtual void SetGameTileShape() = 0;
-
-    virtual void ReadMetaData(std::string, int) = 0;
 
     std::set<std::string> ValidTiles = { "Square", "Triangle", "Hexagon" };
 

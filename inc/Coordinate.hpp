@@ -7,8 +7,7 @@
 
 class Coordinate {
 public:
-
-    Coordinate(int x, int y);
+    inline Coordinate(int x, int y) : x(x), y(y) {};
 
     int getX() const { return x; }
     int getY() const { return y; }
@@ -18,14 +17,10 @@ public:
     }
 
 private:
-
     const int x;
     const int y;
-
-
 };
 
-// Hash function specialization for Coordinate
 namespace std {
     template <>
     struct hash<Coordinate> {

@@ -17,13 +17,13 @@ public:
 
 protected:
 
-    void SetGameBoard() override;
+    void SetGameBoard(std::shared_ptr<std::unordered_map<Coordinate, TileState>>) override;
+
+    void SetGameTileShape(std::shared_ptr<TileShape>) override;
 
     void ValidateGameBoard() override;
 
-    void SetGameTileShape() override; 
-
-    void ReadMetaData(std::string, int) override;
+    void ReadMetaData(std::string, int);
 };
 
 #endif // CSVGAMEBOARDBUILDER_HPP

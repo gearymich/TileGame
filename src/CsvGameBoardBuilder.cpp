@@ -5,13 +5,12 @@ CsvGameBoardBuilder::CsvGameBoardBuilder(
         std::shared_ptr<std::unordered_map<Coordinate, TileState>> aGameBoard,
         std::shared_ptr<TileShape> aGameTileShape,
         std::string filepath) {
-    GameBoard = aGameBoard;
-    GameTileShape = aGameTileShape;
-    // filepath = filepath;
+
+    SetGameBoard(aGameBoard);
+    SetGameTileShape(aGameTileShape);
 
     ReadCsv(filepath);
-    SetGameBoard();
-    SetGameTileShape();
+    
     ValidateGameBoard();
 }
 
@@ -42,12 +41,12 @@ void CsvGameBoardBuilder::ReadCsv(std::string filepath) {
     fin.close();
 }
 
-void CsvGameBoardBuilder::SetGameBoard() {
-
+void CsvGameBoardBuilder::SetGameBoard(std::shared_ptr<std::unordered_map<Coordinate, TileState>> aGameBoard) {
+    GameBoard = aGameBoard;
 };
 
-void CsvGameBoardBuilder::SetGameTileShape() {
-    
+void CsvGameBoardBuilder::SetGameTileShape(std::shared_ptr<TileShape> aGameTileShape) {
+    GameTileShape = aGameTileShape;
 };
 
 void CsvGameBoardBuilder::ValidateGameBoard() {
