@@ -6,13 +6,13 @@ enum class TileState {
 	NA,
 	FILLED,
 	EMPTY,
-    PLAYER
+	PLAYER
 };
 
 enum class LevelState {
 	SUCCESS,
 	FAIL,
-    PROGRESS
+	PROGRESS
 };
 
 enum class TileShape {
@@ -20,6 +20,5 @@ enum class TileShape {
 	TRIANGLE,
 	HEXAGON
 };
-
 
 #endif // GAMESTATEENUM_HPP

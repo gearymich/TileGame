@@ -29,7 +29,7 @@ void CsvGameBoardBuilder::ReadCsv(std::string filepath) {
                 ReadMetaData(cell_data, ColNum); 
             } else { // generate coordinate from input
                 Coordinate NewCoordinate(RowNum, ColNum); 
-                TileState NewTileState = TileState::NA;
+                TileState NewTileState = StringToTileState(cell_data);
                 GameBoard->insert({ NewCoordinate, NewTileState }); 
             }
             ColNum++;
@@ -55,18 +55,22 @@ void CsvGameBoardBuilder::ValidateGameBoard() {
 
 void CsvGameBoardBuilder::ReadMetaData(std::string cell_data, int ColNum) {
     switch (ColNum) {
-        case 0:
+        case 0: // tile shape
             if (ValidTiles.find(cell_data) != ValidTiles.end()) {
                 std::cout << cell_data << " is in the set!" << std::endl;
+                std::shared_ptr<TileShape> GameTileShapePtr = std::make_shared<TileShape>(StringToTileShape(cell_data));
+                SetGameTileShape(GameTileShapePtr);
             } else {
                 std::cout << cell_data << " is not in the set." << std::endl;
             }
             break;
-        case 1:
+        case 1: 
+            MaxX = stoi(cell_data); 
             break;
-        case 2:
+        case 2: 
+            MaxY = stoi(cell_data);
             break;
         default:
-            throw std::invalid_argument( "received bad metadata value" );
+            throw std::invalid_argument( "received bad ColNum value" );
     }
-};
+}

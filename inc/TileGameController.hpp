@@ -13,9 +13,9 @@ public:
 
     TileGameController();
 
-    static const std::string tstos(const TileShape& enumVal) {
-        return TileShapeToString.at(enumVal);
-    };
+    // static const std::string tstos(const TileShape& enumVal) {
+    //     return TileShapeToString.at(enumVal);
+    // };
 
 
     Coordinate GetPlayerLocation() {
@@ -30,12 +30,6 @@ private:
     std::shared_ptr<std::map<Coordinate, TileState>> GameBoard;
 
     Coordinate PlayerLocation;
-
-    static const inline std::map<TileShape, std::string> TileShapeToString = {
-        {TileShape::SQUARE, "Square"}, 
-        {TileShape::TRIANGLE, "Triangle"},
-        {TileShape::HEXAGON, "Hexagon"},
-    };
 };
 
 #endif // TILEGAMECONTROLLER_HPP
