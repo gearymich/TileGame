@@ -14,8 +14,6 @@
 
 
 TEST(CsvTest, TestGetMax_X_Y) {
-    // std::shared_ptr<std::unordered_map<Coordinate, TileState>> TestGameBoard = std::make_shared<std::unordered_map<Coordinate, TileState>>();
-    // std::shared_ptr<TileShape> TestGameTile = std::make_shared<TileShape>(TileShape::SQUARE);
     std::string filepath = "C:\\Users\\geary\\Projects\\TileGame\\data\\test.csv";
     std::unique_ptr<GameBoardBuilderInterface> test1 = std::make_unique<CsvGameBoardBuilder>(filepath);
 
@@ -24,8 +22,6 @@ TEST(CsvTest, TestGetMax_X_Y) {
 }
 
 TEST(CsvTest, TestGetGameTileShape) {
-    // std::shared_ptr<std::unordered_map<Coordinate, TileState>> TestGameBoard = std::make_shared<std::unordered_map<Coordinate, TileState>>();
-    // std::shared_ptr<TileShape> TestGameTile = std::make_shared<TileShape>(TileShape::SQUARE);
     std::string filepath = "C:\\Users\\geary\\Projects\\TileGame\\data\\test.csv";
     std::unique_ptr<GameBoardBuilderInterface> test1 = std::make_unique<CsvGameBoardBuilder>(filepath);
 
@@ -33,8 +29,6 @@ TEST(CsvTest, TestGetGameTileShape) {
 }
 
 TEST(CsvTest, TestGetGameBoard) {
-    // std::shared_ptr<std::unordered_map<Coordinate, TileState>> TestGameBoard = std::make_shared<std::unordered_map<Coordinate, TileState>>();
-    // std::shared_ptr<TileShape> TestGameTile = std::make_shared<TileShape>(TileShape::SQUARE);
     std::string filepath = "C:\\Users\\geary\\Projects\\TileGame\\data\\test.csv";
     std::unique_ptr<GameBoardBuilderInterface> test_builder = std::make_unique<CsvGameBoardBuilder>(filepath);
 
