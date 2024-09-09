@@ -26,9 +26,17 @@ public:
 
     virtual std::shared_ptr<TileShape> GetGameTileShape() = 0;
 
+
+    inline int GetMaxX() {return MaxX;};
+
+    inline int GetMaxY() {return MaxY;};
+
 protected:
 
     virtual void ValidateGameBoard() = 0;
+
+    int MaxX = 0;
+    int MaxY = 0;
 
     std::set<std::string> ValidTiles = { "Square", "Triangle", "Hexagon" };
 

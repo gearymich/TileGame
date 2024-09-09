@@ -4,6 +4,7 @@
 #include <string>
 #include <unordered_map>
 #include <GameStateEnum.hpp>
+#include <iostream>
 
 class Coordinate {
 public:
@@ -14,6 +15,12 @@ public:
 
     inline bool operator==(const Coordinate& c2) const {
         return (x == c2.getX()) && (y == c2.getY());
+    }
+
+    // Overload << operator to print coordinate values
+    friend std::ostream& operator<<(std::ostream& os, const Coordinate& coord) {
+        os << "(" << coord.getX() << ", " << coord.getY() << ")";
+        return os;
     }
 
 private:

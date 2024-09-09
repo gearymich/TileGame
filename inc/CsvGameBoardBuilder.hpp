@@ -6,16 +6,10 @@
 class CsvGameBoardBuilder : public GameBoardBuilderInterface
 {
 public:
-
+    
     CsvGameBoardBuilder(const std::string& filepath);
 
     void ReadCsv(const std::string& filepath);
-
-    void ReadBoardData(int RowNum, int ColNum, const std::string& cell_data);
-
-    inline int GetMaxX() {return MaxX; };
-
-    inline int GetMaxY() {return MaxY; };
 
     inline static const TileShape StringToTileShape(const std::string& val) {
         return StringToTileShapeTable.at(val);
@@ -35,9 +29,7 @@ protected:
 
     void ReadMetaData(const std::string&, int);
 
-    // void SetTileShape(const std::string&);
-
-    int MaxX, MaxY;
+    void ReadBoardData(int RowNum, int ColNum, const std::string& cell_data);
 
     // FUTURE: move from builder to approp class
     static const inline std::map<std::string, TileShape> StringToTileShapeTable = {
