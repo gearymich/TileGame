@@ -7,13 +7,11 @@ class CsvGameBoardBuilder : public GameBoardBuilderInterface
 {
 public:
 
-    CsvGameBoardBuilder(
-        std::shared_ptr<std::unordered_map<Coordinate, TileState>> aGameBoard,
-        // std::shared_ptr<TileShape> aGameTileShape,
-        std::string filepath
-    );
+    CsvGameBoardBuilder(const std::string& filepath);
 
-    void ReadCsv(std::string filepath);
+    void ReadCsv(const std::string& filepath);
+
+    void ReadBoardData(int RowNum, int ColNum, const std::string& cell_data);
 
     inline int GetMaxX() {return MaxX; };
 
@@ -33,18 +31,15 @@ public:
 
 protected:
 
-    void SetGameBoard(std::shared_ptr<std::unordered_map<Coordinate, TileState>>) override;
-
-    void SetGameTileShape(std::shared_ptr<TileShape>) override;
-
     void ValidateGameBoard() override;
 
-    void ReadMetaData(std::string, int);
+    void ReadMetaData(const std::string&, int);
 
-    void SetTileShape(const std::string&);
+    // void SetTileShape(const std::string&);
 
     int MaxX, MaxY;
 
+    // FUTURE: move from builder to approp class
     static const inline std::map<std::string, TileShape> StringToTileShapeTable = {
         {"Square", TileShape::SQUARE}, 
         {"Triangle", TileShape::TRIANGLE},

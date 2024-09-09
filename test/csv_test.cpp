@@ -14,10 +14,10 @@
 // then do LoadGame(ConfigData)
 
 TEST(CsvTest, Test1) {
-    std::shared_ptr<std::unordered_map<Coordinate, TileState>> TestGameBoard = std::make_shared<std::unordered_map<Coordinate, TileState>>();
+    // std::shared_ptr<std::unordered_map<Coordinate, TileState>> TestGameBoard = std::make_shared<std::unordered_map<Coordinate, TileState>>();
     // std::shared_ptr<TileShape> TestGameTile = std::make_shared<TileShape>(TileShape::SQUARE);
     std::string filepath = "C:\\Users\\geary\\Projects\\TileGame\\data\\test.csv";
-    std::unique_ptr<GameBoardBuilderInterface> test1 = std::make_unique<CsvGameBoardBuilder>(TestGameBoard, filepath);
+    std::unique_ptr<GameBoardBuilderInterface> test1 = std::make_unique<CsvGameBoardBuilder>(filepath);
 }
 
 TEST(CsvTest, StringToTileState) {
