@@ -1,15 +1,15 @@
 #ifndef CSVGAMEBOARDBUILDER_HPP
 #define CSVGAMEBOARDBUILDER_HPP
 
-#include "IGameBoardBuilder.hpp"
+#include "GameBoardBuilderInterface.hpp"
 
-class CsvGameBoardBuilder : public IGameBoardBuilder
+class CsvGameBoardBuilder : public GameBoardBuilderInterface
 {
 public:
 
     CsvGameBoardBuilder(
         std::shared_ptr<std::unordered_map<Coordinate, TileState>> aGameBoard,
-        std::shared_ptr<TileShape> aGameTileShape,
+        // std::shared_ptr<TileShape> aGameTileShape,
         std::string filepath
     );
 
@@ -27,7 +27,9 @@ public:
         return StringToTileStateTable.at(val);
     };
 
+    inline std::shared_ptr<std::unordered_map<Coordinate, TileState>> GetGameBoard() override { return GameBoard; };
 
+    inline std::shared_ptr<TileShape> GetGameTileShape() override { return GameTileShape; };
 
 protected:
 

@@ -1,14 +1,23 @@
 #include <gtest/gtest.h>
-#include <IGameBoardBuilder.hpp>
+#include <GameBoardBuilderInterface.hpp>
 #include <CsvGameBoardBuilder.hpp>
 #include <string>
 
+
+// invoke new game --> [game board builder] --> load game 
+
+// output data:
+// game metadata (max X, max Y, TileShape)
+// game board object (as seen on csv) 
+
+// does the builder get invoked by 'ConfigData BuildNewGame()' in the Controller? sounds nice
+// then do LoadGame(ConfigData)
+
 TEST(CsvTest, Test1) {
     std::shared_ptr<std::unordered_map<Coordinate, TileState>> TestGameBoard = std::make_shared<std::unordered_map<Coordinate, TileState>>();
-    std::shared_ptr<TileShape> TestGameTile = std::make_shared<TileShape>(TileShape::SQUARE);
+    // std::shared_ptr<TileShape> TestGameTile = std::make_shared<TileShape>(TileShape::SQUARE);
     std::string filepath = "C:\\Users\\geary\\Projects\\TileGame\\data\\test.csv";
-    std::unique_ptr<IGameBoardBuilder> t = std::make_unique<CsvGameBoardBuilder>(TestGameBoard, TestGameTile, filepath);
-    EXPECT_EQ(1, 1);
+    std::unique_ptr<GameBoardBuilderInterface> test1 = std::make_unique<CsvGameBoardBuilder>(TestGameBoard, filepath);
 }
 
 TEST(CsvTest, StringToTileState) {

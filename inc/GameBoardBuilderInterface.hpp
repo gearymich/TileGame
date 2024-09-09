@@ -1,5 +1,5 @@
-#ifndef IGAMEBOARDBUILDER_HPP
-#define IGAMEBOARDBUILDER_HPP
+#ifndef GAMEBOARDBUILDERINTERFACE_HPP
+#define GAMEBOARDBUILDERINTERFACE_HPP
 
 #include <string>
 #include <map>
@@ -15,16 +15,16 @@
 #include "Coordinate.hpp"
 #include "GameStateEnum.hpp"
 
-class IGameBoardBuilder
+class GameBoardBuilderInterface
 {
 public:
 
-    inline IGameBoardBuilder() {};
-    virtual inline ~IGameBoardBuilder() {};
+    inline GameBoardBuilderInterface() {};
+    virtual inline ~GameBoardBuilderInterface() {};
 
-    std::shared_ptr<std::unordered_map<Coordinate, TileState>> GameBoard;
+    virtual std::shared_ptr<std::unordered_map<Coordinate, TileState>> GetGameBoard() = 0;
 
-    std::shared_ptr<TileShape> GameTileShape;
+    virtual std::shared_ptr<TileShape> GetGameTileShape() = 0;
 
 protected:
 
@@ -36,7 +36,12 @@ protected:
 
     std::set<std::string> ValidTiles = { "Square", "Triangle", "Hexagon" };
 
+    std::shared_ptr<std::unordered_map<Coordinate, TileState>> GameBoard;
+
+    std::shared_ptr<TileShape> GameTileShape;
+
+    
 private:
 };
 
-#endif // IGAMEBOARDBUILDER_HPP
+#endif // GAMEBOARDBUILDERINTERFACE_HPP

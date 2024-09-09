@@ -3,11 +3,10 @@
 // constructor
 CsvGameBoardBuilder::CsvGameBoardBuilder( 
         std::shared_ptr<std::unordered_map<Coordinate, TileState>> aGameBoard,
-        std::shared_ptr<TileShape> aGameTileShape,
+        // std::shared_ptr<TileShape> aGameTileShape,
         std::string filepath) {
 
     SetGameBoard(aGameBoard);
-    SetGameTileShape(aGameTileShape);
 
     ReadCsv(filepath);
     
